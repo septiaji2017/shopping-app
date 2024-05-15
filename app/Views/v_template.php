@@ -55,13 +55,7 @@
       </button>
       <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
         <ul class="navbar-nav navbar-nav-hover ms-auto">
-          <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-              href=<?= base_url('gallery') ?>>
-              <i class="material-icons opacity-6 me-2 text-md">shopping_cart</i>
-              Carts
-            </a>
-          </li>
+
         </ul>
       </div>
     </div>

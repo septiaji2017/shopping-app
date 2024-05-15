@@ -26,8 +26,9 @@
         </div>
       </div>
       <div class="row">
+      <?php foreach ($data as $row): ?>
         <div class="col-lg-3 col-sm-6">
-          <div class="card" data-animation="false">
+          <div class="card mb-5" data-animation="false">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <a class="d-block blur-shadow-image">
                 <img
@@ -40,17 +41,18 @@
             </div>
             <div class="card-body text-center">
               <h5 class="font-weight-normal mt-3">
-                <a href="javascript:;">Barang 1</a>
+                <a href="javascript:;"><?php echo $row['name']; ?></a>
               </h5>
             </div>
             <hr class="dark horizontal my-0">
             <div class="card-footer d-flex">
-              <p class="font-weight-normal my-auto">Rp. 15.000</p>
+              <p class="font-weight-normal my-auto">Rp. <?php echo $row['harga']; ?></p>
               <i class="material-icons position-relative ms-auto text-lg me-1 my-auto">shopping_cart</i>
               <a href="">Add to Cart</a>
             </div>
           </div>
         </div>
+      <?php endforeach; ?>        
       </div>
     </div>
   </section>
