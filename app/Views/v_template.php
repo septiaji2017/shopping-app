@@ -22,7 +22,8 @@
     SquidwardCC | Where Success Live
   </title>
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -42,9 +43,10 @@
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
     <div class="container">
       <a class="navbar-brand  text-white " href=<?= base_url('/') ?>>
-        Squidward Community College
+        Squidward Community Shop
       </a>
-      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon mt-2">
           <span class="navbar-toggler-bar bar1"></span>
           <span class="navbar-toggler-bar bar2"></span>
@@ -54,61 +56,12 @@
       <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
         <ul class="navbar-nav navbar-nav-hover ms-auto">
           <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href=<?= base_url('gallery') ?>>
-              <i class="material-icons opacity-6 me-2 text-md">photo_camera</i>
-              Gallery
+            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+              href=<?= base_url('gallery') ?>>
+              <i class="material-icons opacity-6 me-2 text-md">shopping_cart</i>
+              Carts
             </a>
           </li>
-          <li class="nav-item dropdown dropdown-hover mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
-              Courses
-              <img src="./assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-2 d-lg-block d-none">
-              <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-2 d-lg-none d-block">
-            </a>
-            <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages8">
-              <div class="d-none d-lg-block">
-                <a href=<?= base_url('art') ?> class="dropdown-item border-radius-md">
-                  <span>Art</span>
-                </a>
-                <a href=<?= base_url('music') ?> class="dropdown-item border-radius-md">
-                  <span>Music</span>
-                </a>
-                <a href=<?= base_url('finance') ?> class="dropdown-item border-radius-md">
-                  <span>Finance</span>
-                </a>
-                <a href=<?= base_url('architecture') ?> class="dropdown-item border-radius-md">
-                  <span>Architecture</span>
-                </a>                
-              </div>
-              <div class="d-lg-none">
-                <a href=<?= base_url('art') ?> class="dropdown-item border-radius-md">
-                  <span>Art</span>
-                </a>
-                <a href=<?= base_url('music') ?> class="dropdown-item border-radius-md">
-                  <span>Music</span>
-                </a>
-                <a href=<?= base_url('finance') ?> class="dropdown-item border-radius-md">
-                  <span>Finance</span>
-                </a>
-                <a href=<?= base_url('architecture') ?> class="dropdown-item border-radius-md">
-                  <span>Architecture</span>
-                </a>    
-              </div>
-            </div>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href=<?= base_url('about') ?>>
-              <i class="material-icons opacity-6 me-2 text-md">person</i>
-              About
-            </a>
-          </li>      
-          <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href=<?= base_url('contact') ?>>
-              <i class="material-icons opacity-6 me-2 text-md">call</i>
-              Contact
-            </a>
-          </li>                
         </ul>
       </div>
     </div>
@@ -120,9 +73,9 @@
   </header>
   <!-- -------- END HEADER 7 w/ text and video ------- -->
 
-    <content> 
-        <?= $this->renderSection('content') ?>
-    </content>  
+  <content>
+    <?= $this->renderSection('content') ?>
+  </content>
   <footer class="footer pt-5 mt-5">
     <div class="container">
       <div class=" row">
@@ -131,7 +84,7 @@
             <a href="https://www.creative-tim.com/product/material-kit">
               <img src="./assets/img/SCC-Logo.png" class="mb-3 footer-logo" alt="main_logo">
             </a>
-            <h6 class="font-weight-bolder mb-1">Squidward Community College</h6>
+            <h6 class="font-weight-bolder mb-1">Squidward Community Shop</h6>
             <div class="d-flex flex-row mb-1">
               <div class="p-1"><i class="material-icons opacity-6 me-2 text-md">location_on</i></div>
               <div class="p-1">Bulkington Road, Bedworth, CV12 9EB.</div>
@@ -143,7 +96,7 @@
             <div class="d-flex flex-row mb-3">
               <div class="p-1"><i class="material-icons opacity-6 me-2 text-md">mail</i></div>
               <div class="p-1">hello@squidwardcc.org</div>
-            </div>                         
+            </div>
           </div>
           <div>
             <ul class="d-flex flex-row ms-n3 nav">
@@ -156,7 +109,7 @@
                 <a class="nav-link pe-1" href="#" target="_blank">
                   <i class="fab fa-instagram text-lg opacity-8"></i>
                 </a>
-              </li>              
+              </li>
               <li class="nav-item">
                 <a class="nav-link pe-1" href="#" target="_blank">
                   <i class="fab fa-youtube text-lg opacity-8"></i>
@@ -171,22 +124,12 @@
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                  Student Affairs
+                  Pusat Edukasi Seller
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                  Scientific Publications
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
-                  E-Learning
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">
-                  Diploma Program Entry Selection
+                  Daftar Official Store
                 </a>
               </li>
             </ul>
@@ -199,17 +142,17 @@
             <ul class="flex-column ms-n3 nav">
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                  Academic Services
+                  SCC Care
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                  Knowledge Center
+                  Syarat dan Ketentuan
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" target="_blank">
-                  Legalization of Digital Transcripts
+                  Kebijakan Privasi
                 </a>
               </li>
             </ul>
@@ -218,15 +161,20 @@
         <div class="col-md-2 col-sm-6 col-6 mb-4 me-auto">
           <div>
             <h6 class="text-sm">Where To Find Us</h6>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4918.137354177784!2d74.61140128996992!3d42.865625832047314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7ca2cc8af1d%3A0x55ae970748e07dd9!2sSchool%20%2367!5e0!3m2!1sen!2sid!4v1715699409151!5m2!1sen!2sid" width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4918.137354177784!2d74.61140128996992!3d42.865625832047314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7ca2cc8af1d%3A0x55ae970748e07dd9!2sSchool%20%2367!5e0!3m2!1sen!2sid!4v1715699409151!5m2!1sen!2sid"
+              width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
         <div class="col-12">
           <div class="text-center">
             <p class="text-dark my-4 text-sm font-weight-normal">
-              All rights reserved. Copyright © <script>
+              All rights reserved. Copyright ©
+              <script>
                 document.write(new Date().getFullYear())
-              </script> Squidward Kit by <a href="https://squidwardcc.org/index.html" target="_blank">Creative Squidward Team</a>.
+              </script> Squidward Kit by <a href="https://squidwardcc.org/index.html" target="_blank">Creative
+                Squidward Team</a>.
             </p>
           </div>
         </div>
@@ -320,7 +268,7 @@
   </script>
   <script>
     if (document.getElementsByClassName('page-header')) {
-      window.onscroll = debounce(function() {
+      window.onscroll = debounce(function () {
         var scrollPosition = window.pageYOffset;
         var bgParallax = document.querySelector('.page-header');
         var oVal = (window.scrollY / 3);
