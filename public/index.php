@@ -20,6 +20,8 @@ if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
     exit(1);
 }
 
+define('ENVIRONMENT', 'development');
+
 /*
  *---------------------------------------------------------------
  * SET THE CURRENT DIRECTORY
@@ -54,3 +56,4 @@ $paths = new Config\Paths();
 require $paths->systemDirectory . '/Boot.php';
 
 exit(CodeIgniter\Boot::bootWeb($paths));
+

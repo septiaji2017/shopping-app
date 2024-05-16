@@ -56,10 +56,10 @@
                                     ?>
                                     <tr data-index="<?= $index ?>" data-harga="<?= $item['harga'] ?>">
                                         <td class="align-middle text-center" style="max-width: 100px; max-height: 100px;"><img
-                                                src="/photos/<?= $item['photo'] ?>" alt="img-blur-shadow"
+                                                src="/photos/<?= $item['foto'] ?>" alt="img-blur-shadow"
                                                 class="img-fluid shadow border-radius-lg"></td>
 
-                                        <td class="align-middle text-center"><?= $item['name'] ?></td>
+                                        <td class="align-middle text-center"><?= $item['nama_barang'] ?></td>
                                         <td class="align-middle text-center">
                                             <form method="post" action="/cart/update_quantity">
                                                 <button class="btn btn-sm btn-outline-secondary quantity-change mt-3"

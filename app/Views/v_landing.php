@@ -31,7 +31,7 @@
             <div class="card mb-5" data-animation="false">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <a class="d-block blur-shadow-image">
-                  <img src="/photos/<?= $product['photo'] ?>" alt="img-blur-shadow"
+                  <img src="/photos/<?= $product['foto'] ?>" alt="img-blur-shadow"
                     class="img-fluid shadow border-radius-lg">
                 </a>
                 <div class="colored-shadow"
@@ -40,15 +40,15 @@
               </div>
               <div class="card-body text-center">
                 <h5 class="font-weight-normal mt-3">
-                  <a href="javascript:;"><?php echo $product['name']; ?></a>
+                  <a href="javascript:;"><?php echo $product['nama_barang']; ?></a>
                 </h5>
               </div>
               <hr class="dark horizontal my-0">
               <div class="card-footer d-flex">
                 <p class="font-weight-normal my-auto">Rp <?php echo number_format($product['harga'], 0, ',', '.'); ?></p>
                 <i class="material-icons position-relative ms-auto text-lg me-1 my-auto">shopping_cart</i>
-                <form method="post" action="/cart/add/<?= $product['id'] ?>">
-                  <input type="hidden" name="photo" value="<?= $product['photo'] ?>">
+                <form method="post" action="/cart/add/<?= $product['id_barang'] ?>">
+                  <input type="hidden" name="photo" value="<?= $product['foto'] ?>">
                   <button type="submit">Add to Cart</button>
                 </form>
 

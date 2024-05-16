@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\m_barang;
 
 class Home extends BaseController
 {
@@ -24,48 +25,51 @@ class Home extends BaseController
     public function add_to_cart($product_id)
     {
         $session = session();
-
-        $photo = $this->request->getPost('photo');
-
+    
         // Retrieve the current cart items from the session
         $cart = $session->get('cart') ?? [];
-
+        
+    
+        // Load model
+        $barangModel = new m_barang();
+    
         // Find the product by ID
-        $product = array_filter($this->products, function($product) use ($product_id) {
-            return $product['id'] == $product_id;
-        });
-
+        $product = $barangModel->find($product_id);
+    
         if (!empty($product)) {
-            $product = array_shift($product);
-            // $product = reset($product);
-            $product['photo'] = $photo; 
             // Check if the product already exists in the cart
             $found = false;
             foreach ($cart as &$item) {
-                if ($item['id'] == $product_id) {
+                if ($item['id_barang'] == $product['id_barang']) {
                     $item['quantity'] += 1;
                     $found = true;
                     break;
                 }
             }
-
+    
             // If the product does not exist in the cart, add it
             if (!$found) {
                 $product['quantity'] = 1;
                 $cart[] = $product;
             }
-
+    
             // Store the updated cart back into the session
             $session->set('cart', $cart);
         }
-
+    
         // Redirect to the cart page
         return redirect()->to('/cart');
     }
-
+    
     public function home(): string
     {
-        return view('v_landing', ['products' => $this->products]);
+       
+        $barangModel = new m_barang();
+
+        // Ambil data barang dari database
+        $barang = $barangModel->findAll();
+        
+        return view('v_landing', ['products' => $barang]);
     }
 
     public function clear_cart()

@@ -15,3 +15,4 @@ $routes->post('/cart/delete_item', 'Home::delete_item');
 $routes->post('/validation/process_form','c_validation::process_form');
 
 
+$routes->post('/checkout/process_form', 'c_checkout::process_form');

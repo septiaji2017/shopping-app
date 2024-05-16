@@ -35,7 +35,7 @@
             <?php endif; ?>
             <h2>Checkout</h2>
             <?php helper('form'); ?>
-            <?= form_open('validation/process_form'); ?>
+            <?= form_open('checkout/process_form'); ?>
 
             <div class="input-group input-group-dynamic mb-4">
                 <label for="nama" class="col-sm-2 col-form-label">Nama:</label>
