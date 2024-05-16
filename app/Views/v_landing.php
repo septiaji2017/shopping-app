@@ -46,7 +46,7 @@
             </div>
             <hr class="dark horizontal my-0">
             <div class="card-footer d-flex">
-              <p class="font-weight-normal my-auto">Rp. <?php echo $product['harga']; ?></p>
+              <p class="font-weight-normal my-auto">Rp <?php echo number_format($product['harga'], 0, ',', '.'); ?></p>
               <i class="material-icons position-relative ms-auto text-lg me-1 my-auto">shopping_cart</i>
               <form method="post" action="/cart/add/<?= $product['id'] ?>">
                 <button type="submit">Add to Cart</button>
