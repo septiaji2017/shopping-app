@@ -26,35 +26,36 @@
         </div>
       </div>
       <div class="row">
-      <?php foreach ($products as $product): ?>
-        <div class="col-lg-3 col-sm-6">
-          <div class="card mb-5" data-animation="false">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <a class="d-block blur-shadow-image">
-                <img
-                  src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg"
-                  alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
-              </a>
-              <div class="colored-shadow"
-                style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);">
+        <?php foreach ($products as $product): ?>
+          <div class="col-lg-3 col-sm-6">
+            <div class="card mb-5" data-animation="false">
+              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <a class="d-block blur-shadow-image">
+                  <img src="/photos/<?= $product['photo'] ?>" alt="img-blur-shadow"
+                    class="img-fluid shadow border-radius-lg">
+                </a>
+                <div class="colored-shadow"
+                  style="background-image: url(&quot;https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/products/product-1-min.jpg&quot;);">
+                </div>
+              </div>
+              <div class="card-body text-center">
+                <h5 class="font-weight-normal mt-3">
+                  <a href="javascript:;"><?php echo $product['name']; ?></a>
+                </h5>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer d-flex">
+                <p class="font-weight-normal my-auto">Rp <?php echo number_format($product['harga'], 0, ',', '.'); ?></p>
+                <i class="material-icons position-relative ms-auto text-lg me-1 my-auto">shopping_cart</i>
+                <form method="post" action="/cart/add/<?= $product['id'] ?>">
+                  <input type="hidden" name="photo" value="<?= $product['photo'] ?>">
+                  <button type="submit">Add to Cart</button>
+                </form>
+
               </div>
             </div>
-            <div class="card-body text-center">
-              <h5 class="font-weight-normal mt-3">
-                <a href="javascript:;"><?php echo $product['name']; ?></a>
-              </h5>
-            </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer d-flex">
-              <p class="font-weight-normal my-auto">Rp <?php echo number_format($product['harga'], 0, ',', '.'); ?></p>
-              <i class="material-icons position-relative ms-auto text-lg me-1 my-auto">shopping_cart</i>
-              <form method="post" action="/cart/add/<?= $product['id'] ?>">
-                <button type="submit">Add to Cart</button>
-              </form>
-            </div>
           </div>
-        </div>
-      <?php endforeach; ?>        
+        <?php endforeach; ?>
       </div>
     </div>
   </section>

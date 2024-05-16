@@ -5,12 +5,13 @@ namespace App\Controllers;
 class Home extends BaseController
 {
     private $products = [
-        ['id' => 1, 'name' => 'Barang 1', 'harga' => '15000'],
-        ['id' => 2, 'name' => 'Barang 2', 'harga' => '21000'],
-        ['id' => 3, 'name' => 'Barang 3', 'harga' => '25000'],
-        ['id' => 4, 'name' => 'Barang 4', 'harga' => '50000'],
-        ['id' => 5, 'name' => 'Barang 5', 'harga' => '30000']
+        ['id' => 1, 'name' => 'Barang 1', 'harga' => '15000', 'photo' => 'product1.png'],
+        ['id' => 2, 'name' => 'Barang 2', 'harga' => '21000', 'photo' => 'product2.jpg'],
+        ['id' => 3, 'name' => 'Barang 3', 'harga' => '25000', 'photo' => 'product3.png'],
+        ['id' => 4, 'name' => 'Barang 4', 'harga' => '50000', 'photo' => 'product1.png'],
+        ['id' => 5, 'name' => 'Barang 5', 'harga' => '30000', 'photo' => 'product2.jpg']
     ];
+    
 
     public function index()
     {
@@ -24,6 +25,8 @@ class Home extends BaseController
     {
         $session = session();
 
+        $photo = $this->request->getPost('photo');
+
         // Retrieve the current cart items from the session
         $cart = $session->get('cart') ?? [];
 
@@ -34,7 +37,8 @@ class Home extends BaseController
 
         if (!empty($product)) {
             $product = array_shift($product);
-
+            // $product = reset($product);
+            $product['photo'] = $photo; 
             // Check if the product already exists in the cart
             $found = false;
             foreach ($cart as &$item) {

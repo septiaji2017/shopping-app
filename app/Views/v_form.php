@@ -16,6 +16,12 @@
 
 <?= $this->section('content') ?>
 
+<?php if (isset($successMessage)): ?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $successMessage; ?>
+    </div>
+<?php endif; ?>
+
 <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- Section with LATEST NEWS -->
@@ -24,7 +30,7 @@
             <h2>Checkout</h2>
 
             <?php helper('form'); ?>
-            <?= form_open('c_validation/index'); ?>
+            <?= form_open('validation/process_form'); ?>
 
             <div class="input-group input-group-dynamic mb-4">
                 <label for="nama" class="col-sm-2 col-form-label">Nama:</label>

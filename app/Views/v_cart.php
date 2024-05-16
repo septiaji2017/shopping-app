@@ -28,6 +28,9 @@
                             <tr>
                                 <th
                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Foto Barang</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Nama Barang</th>
                                 <th
                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -52,6 +55,10 @@
                                     $total += $itemTotal;
                                     ?>
                                     <tr data-index="<?= $index ?>" data-harga="<?= $item['harga'] ?>">
+                                        <td class="align-middle text-center" style="max-width: 100px; max-height: 100px;"><img
+                                                src="/photos/<?= $item['photo'] ?>" alt="img-blur-shadow"
+                                                class="img-fluid shadow border-radius-lg"></td>
+
                                         <td class="align-middle text-center"><?= $item['name'] ?></td>
                                         <td class="align-middle text-center">
                                             <form method="post" action="/cart/update_quantity">
