@@ -37,7 +37,7 @@ class c_validation extends Controller
                 'no_hp' => $this->request->getPost('no_hp'),
                 'kode_pos' => $this->request->getPost('kode_pos')
             ];
-            print_r($data);
+            // print_r($data);
             $successMessage = 'Form submitted successfully!';
             return view('v_form', ['successMessage' => $successMessage]);
         }

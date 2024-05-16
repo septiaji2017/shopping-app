@@ -16,19 +16,24 @@
 
 <?= $this->section('content') ?>
 
-<?php if (isset($successMessage)): ?>
-    <div class="alert alert-success" role="alert">
-        <?php echo $successMessage; ?>
-    </div>
-<?php endif; ?>
 
 <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
 
     <!-- Section with LATEST NEWS -->
     <section class="py-7">
         <div class="container">
+            <?php if (count(\Config\Services::validation()->getErrors()) > 0): ?>
+                <div class="alert alert-danger text-white" role="alert">
+                    <strong>Error!</strong>
+                    <?php echo \Config\Services::validation()->listErrors() ?>
+                </div>
+            <?php endif; ?>
+            <?php if (isset($successMessage)): ?>
+                <div class="alert alert-success text-white" role="alert">
+                    <?php echo $successMessage; ?>
+                </div>
+            <?php endif; ?>
             <h2>Checkout</h2>
-
             <?php helper('form'); ?>
             <?= form_open('validation/process_form'); ?>
 
