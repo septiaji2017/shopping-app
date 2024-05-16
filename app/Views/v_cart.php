@@ -26,11 +26,21 @@
                     <table class="table align-items-center mb-0">
                         <thead>
                             <tr>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Barang</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jumlah</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Harga</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sub Total</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Nama Barang</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Jumlah</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Harga</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Sub Total</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Action</th>
                             </tr>
                         </thead>
                         <tbody id="cart-body">
@@ -44,14 +54,27 @@
                                     <tr data-index="<?= $index ?>" data-harga="<?= $item['harga'] ?>">
                                         <td class="align-middle text-center"><?= $item['name'] ?></td>
                                         <td class="align-middle text-center">
-                                            <button class="btn btn-sm btn-outline-secondary quantity-change mt-3" data-change="-1">-</button>
-                                            <span class="mx-2 quantity"><?= $item['quantity'] ?></span>
-                                            <button class="btn btn-sm btn-outline-secondary quantity-change mt-3" data-change="1">+</button>
+                                            <form method="post" action="/cart/update_quantity">
+                                                <button class="btn btn-sm btn-outline-secondary quantity-change mt-3"
+                                                    name="change" value="-1">-</button>
+                                                <span class="mx-2 quantity"><?= $item['quantity'] ?></span>
+                                                <button class="btn btn-sm btn-outline-secondary quantity-change mt-3"
+                                                    name="change" value="1">+</button>
+                                                <input type="hidden" name="index" value="<?= $index ?>">
+                                            </form>
                                         </td>
-                                        <td class="align-middle text-center">Rp <?= number_format($item['harga'], 0, ',', '.') ?></td>
-                                        <td class="align-middle text-center subtotal">Rp <?= number_format($itemTotal, 0, ',', '.') ?></td>
+                                        <td class="align-middle text-center">Rp
+                                            <?= number_format($item['harga'], 0, ',', '.') ?>
+                                        </td>
+                                        <td class="align-middle text-center subtotal">Rp
+                                            <?= number_format($itemTotal, 0, ',', '.') ?>
+                                        </td>
                                         <td class="align-middle text-center">
-                                            <button class="btn btn-sm btn-primary delete-item">Delete</button>
+                                            <form method="post" action="/cart/delete_item">
+                                                <button class="btn btn-sm btn-primary delete-item" type="submit">Delete</button>
+                                                <input type="hidden" name="index" value="<?= $index ?>">
+                                            </form>
+
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -82,83 +105,5 @@
     <!-- -------- END PRE-FOOTER 1 w/ SUBSCRIBE BUTTON AND IMAGE ------- -->
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const cartBody = document.getElementById('cart-body');
-    const totalElement = document.getElementById('total');
-    let total = <?= $total ?>;
-
-    cartBody.addEventListener('click', function(event) {
-        if (event.target.classList.contains('quantity-change')) {
-            const button = event.target;
-            const change = parseInt(button.getAttribute('data-change'));
-            const tr = button.closest('tr');
-            const index = tr.getAttribute('data-index');
-            const harga = parseInt(tr.getAttribute('data-harga'));
-            const quantityElement = tr.querySelector('.quantity');
-            let quantity = parseInt(quantityElement.textContent) + change;
-
-            if (quantity < 1) {
-                quantity = 1;
-            }
-
-            quantityElement.textContent = quantity;
-            const subtotal = quantity * harga;
-            tr.querySelector('.subtotal').textContent = 'Rp ' + new Intl.NumberFormat('id-ID').format(subtotal);
-
-            // Update total
-            updateTotal();
-        }
-
-        if (event.target.classList.contains('delete-item')) {
-            const button = event.target;
-            const tr = button.closest('tr');
-            const index = tr.getAttribute('data-index');
-
-            tr.remove();
-
-            // Update total
-            updateTotal();
-        }
-    });
-
-    //untuk update total
-    function updateTotal() {
-        total = 0;
-        cartBody.querySelectorAll('tr').forEach(function(row) {
-            const rowQuantity = parseInt(row.querySelector('.quantity').textContent);
-            const rowHarga = parseInt(row.getAttribute('data-harga'));
-            total += rowQuantity * rowHarga;
-        });
-        totalElement.textContent = 'Rp ' + new Intl.NumberFormat('id-ID').format(total);
-    }
-
-    //Fungsi untuk update bisa dengan menambah atau mengurangi item
-    function updateCart(index, quantity) {
-        fetch('/cart/update', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-Token': '<?= csrf_token() ?>'
-            },
-            body: JSON.stringify({ index: index, quantity: quantity })
-        });
-    }
-
-    //Fungsi untuk delete per carf item
-    function deleteCartItem(index) {
-        fetch('/cart/delete', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-Token': '<?= csrf_token() ?>'
-            },
-            body: JSON.stringify({ index: index })
-        });
-    }
-});
-</script>
 
 <?= $this->endSection() ?>

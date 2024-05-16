@@ -71,38 +71,50 @@ class Home extends BaseController
         return redirect()->to('/cart');
     }
 
-    public function contact(): string
+    public function update_quantity()
     {
-        return view('pages/v_contact-us');
+        $session = session();
+        $cart = $session->get('cart') ?? [];
+    
+        $index = $this->request->getPost('index');
+        $change = (int) $this->request->getPost('change');
+    
+        if (isset($cart[$index])) {
+            // Update the quantity
+            $cart[$index]['quantity'] += $change;
+            if ($cart[$index]['quantity'] < 1) {
+                // Remove item if quantity is less than 1
+                unset($cart[$index]);
+            }
+            // Store the updated cart back into the session
+            $session->set('cart', $cart);
+        }
+    
+        return redirect()->to('/cart');
     }
     
-    public function about(): string
-    {
-        return view('pages/v_about');
-    }  
-    
-    public function gallery(): string
-    {
-        return view('pages/v_gallery');
-    }      
-    
-    public function art(): string
-    {
-        return view('pages/v_art');
-    }        
 
-    public function music(): string
+    public function delete_item()
     {
-        return view('pages/v_music');
-    }       
+        $session = session();
+        $cart = $session->get('cart') ?? [];
     
-    public function finance(): string
-    {
-        return view('pages/v_finance');
-    }       
+        $index = $this->request->getPost('index');
     
-    public function architecture(): string
+        if (isset($cart[$index])) {
+            // Remove the item from the cart
+            unset($cart[$index]);
+            // Store the updated cart back into the session
+            $session->set('cart', $cart);
+        }
+    
+        return redirect()->to('/cart');
+    }
+    
+
+    public function form(): string
     {
-        return view('pages/v_architecture');
-    }           
+        return view('v_form.php');
+    }
+            
 }
