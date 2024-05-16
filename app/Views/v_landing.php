@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="row">
-      <?php foreach ($data as $row): ?>
+      <?php foreach ($products as $product): ?>
         <div class="col-lg-3 col-sm-6">
           <div class="card mb-5" data-animation="false">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -41,14 +41,16 @@
             </div>
             <div class="card-body text-center">
               <h5 class="font-weight-normal mt-3">
-                <a href="javascript:;"><?php echo $row['name']; ?></a>
+                <a href="javascript:;"><?php echo $product['name']; ?></a>
               </h5>
             </div>
             <hr class="dark horizontal my-0">
             <div class="card-footer d-flex">
-              <p class="font-weight-normal my-auto">Rp. <?php echo $row['harga']; ?></p>
+              <p class="font-weight-normal my-auto">Rp. <?php echo $product['harga']; ?></p>
               <i class="material-icons position-relative ms-auto text-lg me-1 my-auto">shopping_cart</i>
-              <a href="">Add to Cart</a>
+              <form method="post" action="/cart/add/<?= $product['id'] ?>">
+                <button type="submit">Add to Cart</button>
+              </form>
             </div>
           </div>
         </div>
