@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\m_penjualan;
 use App\Models\m_jual;
+use App\Models\m_barang;
 use CodeIgniter\Controller;
 use Config\Services;
 
@@ -72,6 +73,9 @@ class c_checkout extends Controller
     // Siapkan model untuk tbl_jual
     $jualModel = new m_jual();
 
+    // Siapkan model untuk tbl_barang
+    $barangModel = new m_barang();
+
     // Masukkan data barang ke tbl_jual
     foreach ($cart as $item) {
         $dataJual = [
@@ -81,6 +85,9 @@ class c_checkout extends Controller
             'harga_jual' => $item['harga']
         ];
         $jualModel->insert($dataJual);
+
+        // Decrease stock in tbl_barang
+        $barangModel->decreaseStock($item['id_barang'], $item['quantity']);
     }
 
     // Kosongkan keranjang setelah checkout
